@@ -57,7 +57,33 @@ int main(){
 		cout<<"4- Exit\n";
 		cout<<"Enter your operation : ";
 		cin>>choise;
-	
+		system("cls");
+		string firstName,lastName;
+		switch (choise){
+		case 1:
+			cout<<"Welcome aboard new user!\n";
+			cout<<"Please let me know your first name: ";
+			cin>>firstName;
+			cout<<"Great <First Name>, now please enter your last name: ";
+				cin>>lastName;
+			cout<<"Done!\n";
+			cout<<"Nice to meet you "<<firstName<<" "<<lastName<<endl<<endl;
+			addNewUser(firstName,lastName);
+			cout<<"<Click Enter to return to main menu>\n\n\n";
+
+			break;
+		case 2:
+		break;
+		case 3:
+		break;
+		case 4:
+		break;
+		
+		default:
+			break;
+		}
+		system("pause");
+		system("cls");
 	}
 return 0;
 }
