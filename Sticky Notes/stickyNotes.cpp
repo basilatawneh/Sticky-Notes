@@ -6,8 +6,28 @@ using namespace std;
 
 ifstream file;
 
-void addNewUser(){
-//TODO write the function
+void addNewUser(string firstName,string secondName){
+ifstream fileInput;
+fileInput.open("names.txt");
+string name;
+bool isFound=false;
+string fullName=firstName+" "+secondName;
+while(getline(fileInput,name)){
+	if(fullName==name){
+		isFound=true;
+		break;
+	}
+}
+fileInput.close();
+if(!isFound){
+	ofstream fileOutput;
+	fileOutput.open("names.txt", ios::app);
+	fileOutput<<fullName<<endl;
+	fileOutput.close();
+	fileOutput.open(fullName+".txt");
+	fileOutput<<"";
+	fileOutput.close();
+}
 
 }
 void addNewnote(){
