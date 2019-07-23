@@ -6,9 +6,12 @@ using namespace std;
 
 ifstream file;
 
-void addNewUser(){
+void addNewUser(string firstName,string secondName){
 //TODO write the function
-
+ifstream fileInput;
+fileInput.open("names.txt");
+string name;
+while(fileInput>>name){}
 }
 void addNewnote(){
 //TODO write the function
