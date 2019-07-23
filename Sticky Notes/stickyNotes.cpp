@@ -15,9 +15,15 @@ bool isFound=false;
 string fullName=firstName+" "+secondName;
 while(getline(fileInput,name)){
 	if(fullName==name){
-	isFound=true;
-	break;
+		isFound=true;
+		break;
 	}
+}
+fileInput.close();
+if(!isFound){
+ofstream fileOutput;
+fileOutput.open("names.txt", ios::app);
+fileOutput<<fullName<<endl;
 }
 
 }
