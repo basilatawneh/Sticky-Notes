@@ -11,7 +11,15 @@ void addNewUser(string firstName,string secondName){
 ifstream fileInput;
 fileInput.open("names.txt");
 string name;
-while(fileInput>>name){}
+bool isFound=false;
+string fullName=firstName+" "+secondName;
+while(fileInput>>name){
+	if(fullName==name){
+	isFound=true;
+	break;
+	}
+}
+
 }
 void addNewnote(){
 //TODO write the function
