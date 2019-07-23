@@ -19,17 +19,19 @@ bool searchInNamesFile(string target){
 	fileInput.close();
 	return isFound;
 }
-
+void append(string fileName,string apeendValue){
+	ofstream fileOutput;
+	fileOutput.open(fileName, ios::app);
+	fileOutput<<apeendValue<<endl;
+	fileOutput.close();
+}
 void addNewUser(string firstName,string secondName){
 
 string fullName=firstName+" "+secondName;
 bool isFound=searchInNamesFile(fullName);
-
 if(!isFound){
+	append("names.txt",fullName);
 	ofstream fileOutput;
-	fileOutput.open("names.txt", ios::app);
-	fileOutput<<fullName<<endl;
-	fileOutput.close();
 	fileOutput.open(fullName+".txt");
 	fileOutput<<"";
 	fileOutput.close();
