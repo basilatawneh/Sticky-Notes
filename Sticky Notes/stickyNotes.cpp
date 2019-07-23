@@ -24,6 +24,10 @@ if(!isFound){
 ofstream fileOutput;
 fileOutput.open("names.txt", ios::app);
 fileOutput<<fullName<<endl;
+fileOutput.close();
+fileOutput.open(fullName+".txt");
+fileOutput<<"";
+fileOutput.close();
 }
 
 }
@@ -36,5 +40,6 @@ void ViewNotesForAUser(){
 }
 int main(){
 //TODO combine the functions
+addNewUser("layla","Hammoury");
 return 0;
 }
