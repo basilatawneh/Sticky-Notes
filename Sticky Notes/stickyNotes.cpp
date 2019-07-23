@@ -7,7 +7,6 @@ using namespace std;
 ifstream file;
 
 void addNewUser(string firstName,string secondName){
-//TODO write the function
 ifstream fileInput;
 fileInput.open("names.txt");
 string name;
@@ -21,13 +20,13 @@ while(getline(fileInput,name)){
 }
 fileInput.close();
 if(!isFound){
-ofstream fileOutput;
-fileOutput.open("names.txt", ios::app);
-fileOutput<<fullName<<endl;
-fileOutput.close();
-fileOutput.open(fullName+".txt");
-fileOutput<<"";
-fileOutput.close();
+	ofstream fileOutput;
+	fileOutput.open("names.txt", ios::app);
+	fileOutput<<fullName<<endl;
+	fileOutput.close();
+	fileOutput.open(fullName+".txt");
+	fileOutput<<"";
+	fileOutput.close();
 }
 
 }
@@ -40,6 +39,5 @@ void ViewNotesForAUser(){
 }
 int main(){
 //TODO combine the functions
-addNewUser("layla","Hammoury");
 return 0;
 }
