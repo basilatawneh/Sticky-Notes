@@ -13,7 +13,7 @@ fileInput.open("names.txt");
 string name;
 bool isFound=false;
 string fullName=firstName+" "+secondName;
-while(fileInput>>name){
+while(getline(fileInput,name)){
 	if(fullName==name){
 	isFound=true;
 	break;
