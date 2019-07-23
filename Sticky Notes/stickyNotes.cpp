@@ -4,21 +4,27 @@
 
 using namespace std;
 
-ifstream file;
+bool searchInNamesFile(string target){
+	ifstream fileInput;
+	fileInput.open("names.txt");
+	string name;
+	bool isFound=false;
+
+	while(getline(fileInput,name)){
+		if(target==name){
+			isFound=true;
+			break;
+		}
+	}
+	fileInput.close();
+	return isFound;
+}
 
 void addNewUser(string firstName,string secondName){
-ifstream fileInput;
-fileInput.open("names.txt");
-string name;
-bool isFound=false;
+
 string fullName=firstName+" "+secondName;
-while(getline(fileInput,name)){
-	if(fullName==name){
-		isFound=true;
-		break;
-	}
-}
-fileInput.close();
+bool isFound=searchInNamesFile(fullName);
+
 if(!isFound){
 	ofstream fileOutput;
 	fileOutput.open("names.txt", ios::app);
