@@ -5,19 +5,8 @@
 using namespace std;
 
 bool searchInNamesFile(string target){
-	ifstream fileInput;
-	fileInput.open("names.txt");
-	string name;
-	bool isFound=false;
-
-	while(getline(fileInput,name)){
-		if(target==name){
-			isFound=true;
-			break;
-		}
-	}
-	fileInput.close();
-	return isFound;
+	ifstream fileInput(target+".txt");//try to open the file of the user
+	return fileInput.is_open();// return if the tile is open or not , if open the the name is exist else is not
 }
 void append(string fileName,string apeendValue){
 	ofstream fileOutput;

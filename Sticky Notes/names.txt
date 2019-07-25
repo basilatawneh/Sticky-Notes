@@ -3,3 +3,17 @@ basl atawneh
 layla Hammoury
 Ibrahem Abosamrah
 abed hroub
+<<<<<<< Updated upstream
+||||||| merged common ancestors
+LAYLA HAMMOURY
+Hala amro
+Bara'a Anany
+suha amro
+=======
+LAYLA HAMMOURY
+Hala amro
+Bara'a Anany
+suha amro
+basil atawneh
+yasser yasser
+>>>>>>> Stashed changes
