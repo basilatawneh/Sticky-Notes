@@ -1,0 +1,10 @@
+Thu Jul 25 15:52:30 2019
+
+ TO DO LIST: fix 1 line issue , fix the spaces , test the code
+ 
+ 
+Thu Jul 25 15:53:02 2019
+
+ spaces fixed /
+ 
+ 
