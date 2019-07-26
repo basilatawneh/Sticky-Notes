@@ -8,13 +8,12 @@ This is a c++ console progrm that lets the user add notes and save them for late
 */
 
 using namespace std;
-//maybe it's better to put the function prototypes here and implement them afther the main
-//just to be more readable
+
 bool searchInNamesFile(string target){
 	ifstream fileInput(target+".txt");//try to open the file of the user
 	return fileInput.is_open();// return if the tile is open or not , if open the the name is exist else is not
 }
-//typing mistake apeendValue -> appendValue
+
 void append(string fileName,string apeendValue){
 	ofstream fileOutput;
 	fileOutput.open(fileName, ios::app);
@@ -35,18 +34,14 @@ if(!isFound){
 
 }
 void addNewnote(string fullName){
-//TODO write the function
+
 	string note , finalNote;
 	fullName+=".txt";
 	getline(cin , note);
 	time_t currnentTime = time(0);
 	string now = ctime(&currnentTime);
 	finalNote = now + "\n " + note;
-	/*ofstream fileOutput;
-	fileOutput.open(fullName+".txt");
-	fileOutput << now << endl << note;
-	fileOutput.close();*/
-	
+
 	append(fullName , finalNote);
 	cout<<"Your note has been well received, 1 second while saving it ...\n"
 		<<"Done!\n";
@@ -56,7 +51,6 @@ void ViewNotesForAUser(string fullName){
 	 cout << std::ifstream(fullName+".txt").rdbuf();
 }
 int main(){
-//TODO combine the functions
 	int choise;
 	while(true){
 		cout<<"Welcome to the brand new “Sticky Notes”!\n";
@@ -97,12 +91,12 @@ int main(){
 				getline(cin , enter);
 				addNewnote(fullName);
 			
-				cout<<"<\nClick Enter to return to main menu>\n\n\n";
 
 			}
 			else 
 				cout<<"Oh! Sorry the user name was not found, please check the name again and if this is your first time here,"
-				<<"please go ahead and create a new user from the main menu ...\n";
+					<<"please go ahead and create a new user from the main menu ...\n";
+			cout<<"<\nClick Enter to return to main menu>\n\n\n";
 
 		}
 		break;
@@ -115,16 +109,15 @@ int main(){
 			string fullName = firstName + " " + lastName;
 			if(searchInNamesFile(fullName))
 			{
-			cout<<"Found it!\n"
-				<<"Here are your stored notes:\n"
-				<<"-------------\n";
+				cout<<"Found it!\n"
+					<<"Here are your stored notes:\n"
+					<<"-------------\n";
 				
-			ViewNotesForAUser(fullName);
-			 cout<<"-------------\n Happy to serve you :) \n";
-			 cout<<"<Click Enter to return to main menu>\n\n\n";
+				ViewNotesForAUser(fullName);
+				 cout<<"-------------\n Happy to serve you :) \n";
 			}
 			else
-			cout<<"Umm, can't find any saved notes for you.\n";
+				cout<<"Umm, can't find any saved notes for you.\n";
 			cout<<"<\nClick Enter to return to main menu>\n\n\n";
 		}
 		break;
