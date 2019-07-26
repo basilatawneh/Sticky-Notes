@@ -51,8 +51,9 @@ void addNewnote(string fullName){
 	cout<<"Your note has been well received, 1 second while saving it ...\n"
 		<<"Done!\n";
 }
-void ViewNotesForAUser(){
-//TODO write the function
+void ViewNotesForAUser(string fullName){
+
+	 cout << std::ifstream(fullName+".txt").rdbuf();
 }
 int main(){
 //TODO combine the functions
@@ -96,7 +97,7 @@ int main(){
 				getline(cin , enter);
 				addNewnote(fullName);
 			
-				cout<<"<Click Enter to return to main menu>\n\n\n";
+				cout<<"<\nClick Enter to return to main menu>\n\n\n";
 
 			}
 			else 
@@ -106,6 +107,26 @@ int main(){
 		}
 		break;
 		case 3:
+		{
+			
+			cout<<"Retrieve your notes? Absolutely! \n"
+				<<"Please let know your full name first: <Enter first name> <Enter last Name>\n";
+			cin>>firstName>>lastName;
+			string fullName = firstName + " " + lastName;
+			if(searchInNamesFile(fullName))
+			{
+			cout<<"Found it!\n"
+				<<"Here are your stored notes:\n"
+				<<"-------------\n";
+				
+			ViewNotesForAUser(fullName);
+			 cout<<"-------------\n Happy to serve you :) \n";
+			 cout<<"<Click Enter to return to main menu>\n\n\n";
+			}
+			else
+			cout<<"Umm, can't find any saved notes for you.\n";
+			cout<<"<\nClick Enter to return to main menu>\n\n\n";
+		}
 		break;
 		case 4:
 			return 0;
