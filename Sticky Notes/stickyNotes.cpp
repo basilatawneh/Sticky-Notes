@@ -14,6 +14,18 @@ bool dataValidation(string name){
 		cout<<"The name is empty, pleace write the name\n";
 		isValid=false;
 	}
+	else{
+		int len=name.length();
+		for(int i=0;i<len;i++){
+			if(isalpha(name[i])==false){
+				cout<<"The name has special character , pleace write the name without special character\n";
+				isValid=false;
+				break;
+			}
+		}
+	
+	
+	}
 	
 return isValid;
 }
