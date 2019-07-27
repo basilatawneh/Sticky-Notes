@@ -72,6 +72,7 @@ void ViewNotesForAUser(string fullName){
 }
 int main(){
 	int choise;
+	bool isValedName;
 	while(true){
 		cout<<"Welcome to the brand new “Sticky Notes”!\n";
 		cout<<"Here is the list of operation this program offers:\n";
@@ -87,13 +88,17 @@ int main(){
 		switch (choise){
 		case 1:
 			cout<<"Welcome aboard new user!\n";
-			while(dataValidation(firstName)==false){
+			isValedName=false;
+			while(isValedName==false){
 			cout<<"Please let me know your first name: ";
 			cin>>firstName;
+			isValedName=dataValidation(firstName);
 			}
-			while(dataValidation(lastName)==false){
+			isValedName=false;
+			while(isValedName == false){
 			cout<<"Great "<<firstName<<", now please enter your last name: ";
 			cin>>lastName;
+			isValedName=dataValidation(lastName);
 			}
 			cout<<"Done!\n";
 			cout<<"Nice to meet you "<<firstName<<" "<<lastName<<endl<<endl;
@@ -104,11 +109,12 @@ int main(){
 		case 2:
 		{
 			cout<<"Let's add a new note ...\n";
-			fullName = "";
-			while(!dataValidation(fullName)){
+			isValedName=false;
+			while(isValedName == false){
 			cout<<"Please enter your full name first: <Enter First Name> <Enter Last Name>\n";
 			cin>>firstName>>lastName;
 			fullName = firstName + " " + lastName;
+			isValedName=dataValidation(fullName);
 			}
 			if(searchInNamesFile(fullName))
 			{
@@ -132,11 +138,12 @@ int main(){
 		{
 			
 			cout<<"Retrieve your notes? Absolutely! \n";
-			fullName = "";
-			while(!dataValidation(fullName)){
+			isValedName=false;
+			while(isValedName == false){
 				cout<<"Please let know your full name first: <Enter first name> <Enter last Name>\n";
 				cin>>firstName>>lastName;
 				fullName = firstName + " " + lastName;
+				isValedName=dataValidation(fullName);
 			}
 			if(searchInNamesFile(fullName))
 			{
