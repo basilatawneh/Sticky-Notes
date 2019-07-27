@@ -131,10 +131,13 @@ int main(){
 		case 3:
 		{
 			
-			cout<<"Retrieve your notes? Absolutely! \n"
-				<<"Please let know your full name first: <Enter first name> <Enter last Name>\n";
-			cin>>firstName>>lastName;
-			string fullName = firstName + " " + lastName;
+			cout<<"Retrieve your notes? Absolutely! \n";
+			fullName = "";
+			while(!dataValidation(fullName)){
+				cout<<"Please let know your full name first: <Enter first name> <Enter last Name>\n";
+				cin>>firstName>>lastName;
+				fullName = firstName + " " + lastName;
+			}
 			if(searchInNamesFile(fullName))
 			{
 				cout<<"Found it!\n"
