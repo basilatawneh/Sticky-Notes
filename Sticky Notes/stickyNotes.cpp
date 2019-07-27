@@ -17,7 +17,7 @@ bool dataValidation(string name){
 	else{
 		int len=name.length();
 		for(int i=0;i<len;i++){
-			if(isalpha(name[i])==false){
+			if(name[i]!=' ' && isalpha(name[i])==false){
 				cout<<"The name has special character , pleace write the name without special character\n\n";
 				isValid=false;
 				break;
@@ -82,18 +82,15 @@ int main(){
 		cout<<"Enter your operation : ";
 		cin>>choise;
 		system("cls");
-		string firstName,lastName;
+		string firstName="",lastName="";
+		string fullName="";
 		switch (choise){
 		case 1:
 			cout<<"Welcome aboard new user!\n";
-			cout<<"Please let me know your first name: ";
-			cin>>firstName;
 			while(dataValidation(firstName)==false){
 			cout<<"Please let me know your first name: ";
 			cin>>firstName;
 			}
-			cout<<"Great "<<firstName<<", now please enter your last name: ";
-			cin>>lastName;
 			while(dataValidation(lastName)==false){
 			cout<<"Great "<<firstName<<", now please enter your last name: ";
 			cin>>lastName;
@@ -106,10 +103,13 @@ int main(){
 			break;
 		case 2:
 		{
-			cout<<"Let's add a new note ...\n"
-			<<"Please enter your full name first: <Enter First Name> <Enter Last Name>\n";
+			cout<<"Let's add a new note ...\n";
+			fullName = "";
+			while(!dataValidation(fullName)){
+			cout<<"Please enter your full name first: <Enter First Name> <Enter Last Name>\n";
 			cin>>firstName>>lastName;
-			string fullName = firstName + " " + lastName;
+			fullName = firstName + " " + lastName;
+			}
 			if(searchInNamesFile(fullName))
 			{
 				cout<<"Your record is found, I'm now opening your file ...\n"
