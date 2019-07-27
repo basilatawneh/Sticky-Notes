@@ -164,6 +164,7 @@ int main(){
 		break;
 		
 		default:
+			cout<<"you choose wrong choise, pleas try again :)\n\n";
 			break;
 		}
 		system("pause");
