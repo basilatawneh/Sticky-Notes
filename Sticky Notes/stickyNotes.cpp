@@ -8,7 +8,15 @@ This is a c++ console progrm that lets the user add notes and save them for late
 */
 
 using namespace std;
-
+bool dataValidation(string name){
+	bool isValid=true;
+	if(name == ""){
+		cout<<"The name is empty, pleace write the name\n";
+		isValid=false;
+	}
+	
+return isValid;
+}
 bool searchInNamesFile(string target){
 	ifstream fileInput(target+".txt");//try to open the file of the user
 	return fileInput.is_open();// return if the tile is open or not , if open the the name is exist else is not
