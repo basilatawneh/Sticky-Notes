@@ -11,14 +11,14 @@ using namespace std;
 bool dataValidation(string name){
 	bool isValid=true;
 	if(name == ""){
-		cout<<"The name is empty, pleace write the name\n";
+		cout<<"The name is empty, pleace write the name\n\n";
 		isValid=false;
 	}
 	else{
 		int len=name.length();
 		for(int i=0;i<len;i++){
 			if(isalpha(name[i])==false){
-				cout<<"The name has special character , pleace write the name without special character\n";
+				cout<<"The name has special character , pleace write the name without special character\n\n";
 				isValid=false;
 				break;
 			}
@@ -88,8 +88,16 @@ int main(){
 			cout<<"Welcome aboard new user!\n";
 			cout<<"Please let me know your first name: ";
 			cin>>firstName;
+			while(dataValidation(firstName)==false){
+			cout<<"Please let me know your first name: ";
+			cin>>firstName;
+			}
 			cout<<"Great "<<firstName<<", now please enter your last name: ";
-				cin>>lastName;
+			cin>>lastName;
+			while(dataValidation(lastName)==false){
+			cout<<"Great "<<firstName<<", now please enter your last name: ";
+			cin>>lastName;
+			}
 			cout<<"Done!\n";
 			cout<<"Nice to meet you "<<firstName<<" "<<lastName<<endl<<endl;
 			addNewUser(firstName,lastName);
